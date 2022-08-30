@@ -1,8 +1,11 @@
 // Test Array Example /////////////////////////////
-const arr1 = [1, 2, 3];
+const arr1 = [1, { map: "qurban" }, 2, 3];
 const arr2 = ["apple", "orange", "cherry"];
 const arr3 = ["apple", 5, "cherry", 7, "", 8, " ", 9];
 const arr4 = [];
+const arr5 = [0, 1, [3, 4], 2];
+const arr6 = [0, 1, 2, [[[3, 4]]]];
+
 // Custom Map Methods /////////////////////////////
 Array.prototype.customMap = function (cb) {
   // `this` keyword points to the array itself
@@ -80,8 +83,8 @@ Array.prototype.customForEach = function (fn) {
   }
 };
 console.log("----------- forEach Methods ----------------");
-test1 = arr2.customForEach((item) => console.log(item));
-test2 = arr2.forEach((item) => console.log(item));
+arr1.customForEach((item) => console.log(item * 2));
+arr1.forEach((item) => console.log(item * 2));
 // Custom Reverse Methods ////////////////////////////
 Array.prototype.customReverse = function () {
   const result = [];
@@ -144,5 +147,35 @@ Array.prototype.customIncludes = function (x, y) {
 console.log("----------- Includes Methods ----------------");
 test1 = arr1.customIncludes(2, 1);
 test2 = arr1.includes(2, 1);
+console.log("test1", test1);
+console.log("test2", test2);
+// Custom Flat Methods ////////////////////////////
+Array.prototype.customFlat = function (x) {
+  let result = [];
+  let y;
+  if ((x = 1 || x == undefined)) {
+    for (let i = 0; i < this.length; i++) {
+      if (Array.isArray(this[i])) {
+        result = result.concat(this[i]);
+      } else {
+        result.push(this[i]);
+      }
+    }
+  } else {
+    for (let j = 1; j < x; j++) {
+      for (let i = 0; i < this.length; i++) {
+        if (Array.isArray(this[i])) {
+          result = result.concat(this[i]);
+        } else {
+          result.push(this[i]);
+        }
+      }
+    }
+  }
+  return result;
+};
+console.log("----------- Flat Methods ----------------");
+test1 = arr6.customFlat(2);
+test2 = arr6.flat(2);
 console.log("test1", test1);
 console.log("test2", test2);
