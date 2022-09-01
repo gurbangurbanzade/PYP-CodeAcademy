@@ -11,18 +11,12 @@ function deepEquals(x, y) {
   } else {
     return false;
   }
-  //   }
-  //   else if (x === y) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
 }
 console.log();
 console.log();
 console.log();
 console.log();
-console.log();
+console.log(deepEquals(NaN, NaN));
 console.log(deepEquals([[1, true, "abc"], [2]], [[1, true, "abc"]]));
 console.log(
   deepEquals([[1, [2, 3, [4, 5]]], [2]], [[1, [2, 3, [4, "5"]]], [2]])
