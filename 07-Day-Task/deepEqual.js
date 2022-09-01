@@ -14,7 +14,8 @@ function deepEquals(x, y) {
     return false;
   }
 }
-console.log();
+console.log(deepEquals([], {}));
+console.log(deepEquals([1, 1], ["1", "1"]));
 console.log(deepEquals(null, null));
 console.log(deepEquals(null, null));
 console.log(deepEquals(NaN, NaN));
@@ -22,10 +23,7 @@ console.log(deepEquals([[1, true, "abc"], [2]], [[1, true, "abc"]]));
 console.log(
   deepEquals([[1, [2, 3, [4, 5]]], [2]], [[1, [2, 3, [4, "5"]]], [2]])
 );
-console.log(deepEquals(undefined, undefined));
-console.log(
-  deepEquals([1, 2, [3, 4, { a: "abc" }]], [1, 2, [3, 4, { a: "abc" }]])
-);
+
 console.log(
   deepEquals({ a: 123, c: true, b: "abc" }, { a: 123, b: "abc", c: true })
 );
