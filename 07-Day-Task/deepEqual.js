@@ -1,8 +1,10 @@
 function deepEquals(x, y) {
-  if (x === undefined || y === undefined) {
+  if (x === NaN && y === NaN) {
     return false;
   } else if (x === undefined && y === undefined) {
     return true;
+  } else if (x === undefined || y === undefined) {
+    return false;
   } else if (
     JSON.stringify(x).split("").sort().toString() ===
     JSON.stringify(y).split("").sort().toString()
@@ -13,9 +15,8 @@ function deepEquals(x, y) {
   }
 }
 console.log();
-console.log();
-console.log();
-console.log();
+console.log(deepEquals(null, null));
+console.log(deepEquals(null, null));
 console.log(deepEquals(NaN, NaN));
 console.log(deepEquals([[1, true, "abc"], [2]], [[1, true, "abc"]]));
 console.log(
