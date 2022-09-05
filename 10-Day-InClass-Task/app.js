@@ -4,22 +4,32 @@ let zone = document.querySelector(".left");
 let easy = document.querySelector(".easy");
 let medium = document.querySelector(".medium");
 let hard = document.querySelector(".hard");
+let text = document.querySelector(".text");
 
 start.addEventListener("click", function () {
+  let x = 0;
   let yarat = function () {
     let bubble = document.createElement("div");
     bubble.className = "bubble";
     bubble.style.top = `${Math.floor(Math.random() * 500)}px`;
     bubble.style.left = `${Math.floor(Math.random() * 1000)}px`;
     zone.appendChild(bubble);
+    text.innerHTML = `Score - ${x}`;
   };
   yarat();
-
   let min = setInterval(() => {
     clearInterval(ikimin);
     clearInterval(ucmin);
+    let bubbleDiv = document.querySelectorAll(".bubble");
+    for (let elem of bubbleDiv) {
+      elem.addEventListener("click", function () {
+        console.log("salam");
+        elem.style.display = "none";
+        x = x + 10;
+      });
+    }
     yarat();
-
+    text.innerHTML = `Score - ${x}`;
     console.log("1");
   }, 3000);
   let ikimin;
@@ -29,6 +39,15 @@ start.addEventListener("click", function () {
     clearInterval(ucmin);
     ikimin = setInterval(() => {
       console.log("1");
+      let bubbleDiv = document.querySelectorAll(".bubble");
+      for (let elem of bubbleDiv) {
+        elem.addEventListener("click", function () {
+          console.log("salam");
+          elem.style.display = "none";
+          x = x + 10;
+          text.innerHTML = `Score - ${x}`;
+        });
+      }
       yarat();
     }, 3000);
   });
@@ -38,6 +57,16 @@ start.addEventListener("click", function () {
     ikimin = setInterval(() => {
       yarat();
       console.log("2");
+      let bubbleDiv = document.querySelectorAll(".bubble");
+      for (let elem of bubbleDiv) {
+        elem.addEventListener("click", function () {
+          console.log("salam");
+          elem.style.display = "none";
+          x = x + 20;
+
+          text.innerHTML = `Score - ${x}`;
+        });
+      }
     }, 2000);
   });
 
@@ -47,16 +76,18 @@ start.addEventListener("click", function () {
     ucmin = setInterval(() => {
       yarat();
       console.log("3");
+      let bubbleDiv = document.querySelectorAll(".bubble");
+      for (let elem of bubbleDiv) {
+        elem.addEventListener("click", function () {
+          console.log("salam");
+          elem.style.display = "none";
+          x = x + 30;
+
+          text.innerHTML = `Score - ${x}`;
+        });
+      }
     }, 1000);
   });
-
-  let bubbleDiv = document.querySelectorAll(".bubble");
-  for (let elem of bubbleDiv) {
-    elem.addEventListener("click", function () {
-      console.log("salam");
-      elem.style.display = "none";
-    });
-  }
 });
 // let yarat = setInterval((x) => {
 //   console.log(x);
