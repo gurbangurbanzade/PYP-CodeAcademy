@@ -1,0 +1,81 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+section {
+  border: 2px solid black;
+  padding: 10px;
+  width: 1440px;
+  height: 750px;
+  display: flex;
+  margin: auto;
+}
+.left {
+  width: 1000px;
+  height: 700px;
+  border: 2px solid black;
+  margin-right: 10px;
+  position: relative;
+}
+
+.right {
+  width: 400px;
+  height: 700px;
+  border: 2px solid black;
+  padding: 20px;
+}
+.btnBox {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+button {
+  padding: 10px 20px;
+}
+.inputBox {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+}
+input {
+  margin-right: 10px;
+}
+.bubble {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(166, 41, 166);
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  border: 5px solid rgb(5, 238, 79);
+}
+.result {
+  margin-top: 20px;
+  width: 100%;
+  border: 2px solid black;
+  height: 100px;
+}
+.textName,
+.textScore {
+  margin: 20px;
+}
+.record {
+  border: 2px solid black;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+ul {
+  margin-left: 20px;
+  list-style: none;
+  align-self: flex-start;
+}
