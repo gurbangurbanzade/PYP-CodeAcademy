@@ -5,37 +5,44 @@ let img = document.querySelector(".bgImg");
 //     img.style.filter = "blur(8px)";
 //   }
 // });
+let count = 0;
 
 const inputHandler = function (e) {
-  let count = 10;
-  //   console.log(typeof e.target.value[0]);
+  // console.log(Number("-"));
   if (e.target.value.length > 8) {
     img.style.filter = "blur(50px)";
     console.log("min 8");
-    count -= 2;
     for (let i = 0; i < e.target.value.length; i++) {
       if (e.target.value[i] == e.target.value[i].toUpperCase()) {
-        count -= 2;
-        img.style.filter = "blur(30px)";
+        count++;
+
+        img.style.filter = "blur(80px)";
         console.log("Upper");
+        count++;
+
+        break;
       }
     }
     for (let i = 0; i < e.target.value.length; i++) {
-      if (typeof Number(e.target.value[i]) == "number") {
-        count -= 2;
-        img.style.filter = "blur(10px)";
+      if (Number(e.target.value[i]) * 0 == 0) {
+        img.style.filter = "blur(60px)";
         console.log("number");
+        count++;
+        break;
       }
     }
 
     for (let i = 0; i < e.target.value.length; i++) {
       if (!isCharacterALetter(e.target.value[i])) {
         console.log("char");
+        count++;
+        break;
       }
       function isCharacterALetter(char) {
         return /[a-zA-Z]/.test(char);
       }
     }
   }
+  console.log(count);
 };
 input.addEventListener("input", inputHandler);

@@ -1,0 +1,22 @@
+.inputs {
+  display: flex;
+  width: 100px;
+  margin: auto;
+  margin-top: 100px;
+  position: relative;
+  border: 2px solid black;
+  width: 300px;
+  height: 30px;
+  padding: 20px;
+}
+input {
+  width: 30px;
+}
+.removed {
+  position: absolute;
+  background-color: red;
+  top: 10px;
+  width: 100px;
+  height: 50px;
+  /* opacity: 0; */
+}
