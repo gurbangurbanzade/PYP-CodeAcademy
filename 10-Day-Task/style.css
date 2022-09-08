@@ -79,3 +79,7 @@ ul {
   list-style: none;
   align-self: flex-start;
 }
+
+.salam {
+  color: rgba(255, 0, 0, 0);
+}

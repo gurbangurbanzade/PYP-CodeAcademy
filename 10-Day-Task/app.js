@@ -7,6 +7,7 @@ let hard = document.querySelector(".hard");
 let textName = document.querySelector(".textName");
 let textScore = document.querySelector(".textScore");
 let input = document.querySelectorAll("input");
+let audio = document.querySelectorAll(".audio");
 
 let x = 0;
 let y = 0;
@@ -97,6 +98,9 @@ stop.addEventListener("click", function () {
 
   arr.push({ Name: textName.innerHTML, Score: `${x}` });
   localStorage.setItem("array", JSON.stringify(arr));
+  // localStorage.setItem("name",`${textName.innerHTML}`);
+  // localStorage.setItem("score":`${x}`);
+
   console.log(arr);
   console.log(localStorage);
 });
@@ -113,7 +117,7 @@ for (let elem of records) {
   arr2.push(elem.Score);
   console.log(arr2.sort((a, b) => b - a));
 }
-console.log(records[0].Score);
+// console.log(records[0].Score);
 for (let i = 0; i < arr2.length; i++) {
   for (let j = 0; j < records.length; j++) {
     if (arr2[i] == records[j].Score) {
@@ -121,6 +125,11 @@ for (let i = 0; i < arr2.length; i++) {
       li.className = "list-item";
       ul.appendChild(li);
       li.innerHTML = `${records[j].Name} ---- Score: ${records[j].Score}`;
+      break;
     }
   }
 }
+
+zone.addEventListener("click", function () {
+  audio.play();
+});
